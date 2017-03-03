@@ -1,5 +1,8 @@
 package com.banannaps.cool.bringbread;
 
+import android.app.AlertDialog;
+import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -12,6 +15,7 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
@@ -23,13 +27,55 @@ import static android.R.id.list;
 
 public class Main extends AppCompatActivity {
     ListView lv_tasques;
+    Button btn_afegir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
+        setBtnAfegir();
         setListView();
+    }
+
+    private void setBtnAfegir() {
+        btn_afegir = (Button) findViewById(R.id.btnAfegir);
+        btn_afegir.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(Main.this, AfegirTasca.class);
+                startActivity(i);
+            }
+        });
+    }
+
+    private void setListView() {
+
+        lv_tasques = (ListView) findViewById(R.id.lv_tasques);
+        final String[] nomTasques = new String[] { "Comprar pa", "Comprar gel", "Comprar vodka", "Comprar llet" };
+        final String[] locTasques = new String[] { "Forn de pa", "Super", "Celler", "Super"};
+
+        ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
+            @Override
+            public View getView(int position, View convertView, ViewGroup parent) {
+                View view = super.getView(position, convertView, parent);
+                TextView nomTasca = (TextView) view.findViewById(android.R.id.text1);
+                TextView locTasca = (TextView) view.findViewById(android.R.id.text2);
+
+                nomTasca.setText(nomTasques[position]);
+                locTasca.setText(locTasques[position]);
+                return view;
+            }
+        };
+
+        lv_tasques.setAdapter(adaptador);
+
+        /* lv_tasques.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                String itemValue = (String) lv_tasques.getItemAtPosition(position);
+            }
+        }); */
     }
 
     @Override
@@ -54,39 +100,4 @@ public class Main extends AppCompatActivity {
         return super.onOptionsItemSelected(item);
     }
 
-
-    void setListView() {
-
-        lv_tasques = (ListView) findViewById(R.id.lv_tasques);
-        final String[] nomTasques = new String[] { "Comprar pa", "Comprar gel", "Comprar vodka", "Comprar llet" };
-
-        final String[] locTasques = new String[] { "Forn de pa", "Super", "Celler", "Super"};
-
-       // ArrayAdapter<String> adaptador = new ArrayAdapter<String>(this, android.R.layout.simple_list_item_1, android.R.id.text1, values);
-
-        ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
-            @Override
-            public View getView(int position, View convertView, ViewGroup parent) {
-                View view = super.getView(position, convertView, parent);
-                TextView nomTasca = (TextView) view.findViewById(android.R.id.text1);
-                TextView locTasca = (TextView) view.findViewById(android.R.id.text2);
-
-                nomTasca.setText(nomTasques[position]);
-                locTasca.setText(locTasques[position]);
-                return view;
-            }
-        };
-
-        lv_tasques.setAdapter(adaptador);
-
-        /* lv_tasques.setOnItemClickListener(new AdapterView.OnItemClickListener() {
-            @Override
-            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-
-                int tascaClicada = position;
-                String itemValue = (String) lv_tasques.getItemAtPosition(position);
-
-            }
-        }); */
-    }
 }
