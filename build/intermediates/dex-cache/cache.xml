@@ -1,0 +1,203 @@
+<?xml version="1.0" encoding="utf-8"?>
+<items version="2" >
+
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\565bbe840de12d0b6301d0e72f02beaf9db5f045\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_ac0dc26ed5b35beef81792d3df564cb0f0d51cea.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0a9cb567dc008f570c28531720168f19148da965">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_dfab34cb180fef1c93ece6d49b61c154d0813dc5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\10b1906a13af6f21f1b2d56810f931957b254f53\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_b0328f4794a2df43f6c8b74e1fc7385a65c314e0.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\2da681906c9f3b07cf131e3a51a32b65dfbcc7db\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_11c1039ae052d9de502af9c20d82e7686099dd31.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\8179db41884e78619b6d93a280782f9645ee4fc8\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_90959656e6fcf6e7bb03af9157bb52e6532b0da7.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\eab472a3a32169f46f3e403b0efd1fcce8c69028\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_7d981ff1e4a1833aaec2e4db37810f0de4132ca6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\1dc1ece5336b62f531187d34da33dda5f11e28f9\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_c8b12ceba8d74a69fc20a25211bd4ae67ac41459.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\2ff40d7d592b6edc1a695d19877971cdca82b359\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_47d6e34a787253891270b1429c64a929a3b8f0ce.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\d770ec1c3c0c9709e5adde6f093738488e92c942\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_330bb00a7cc447832854e40fd24858662a800646.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\3fbfb51d746beed87d2ea80c5ec261d365127b99\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_b541205ee622f7c116bb3196db80fae83b30f9f5.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\4db783354541fe452208a8df194f9cba3cd13dbc\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_768b3c53de7ce3c781b0f72265896a7357100bb1.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\8285e7d7d29c5bdd3978916632b914aa2a305e90\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_d036fd078fe2f8a64e33a6d7ab1363cda9ede43e.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\dc147617b0cbbd7c0435e3c54ddc6af818679b55\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_adf879cc2a722cb97746cce08087abdc4df7ef1b.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\936f97811c3e0dd0b485e70f4ff72ec01668b36c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_8bffd2908367be01db023c30f3a8debb9c7b14fc.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\14742a89d43e0d22efb1a1574a25ccfcfd4d3a7a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="e51c2f662bb72419632af5192553c37e33890a99">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_0d604a68c69040eccb4ab5ff0016858295921451.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\26dd15619e59f0ca1d3f5383996c3804309e595c\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_62c866d056385543c3ae23451adcc1888fb9caf6.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\023b40393992d0df8f81982788d6d8efae82b625\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="75575883f0348fc5d2be85f23bd10b050095cf17">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_9d97f950e492c3af683cf1cf889975a40a925218.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\64fc7f626e9bd3b80fae4db9aad73fbaed70bf5a\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_232c18685f29e57c461fc95716765919a18735ed.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\aa378fbf805e5c67e0aa0216bae21c8f82b799b4\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_a64c8a090949cbb199dddda4ea420ade6c822c50.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\ec50196df5c055356d27f94311ff4be5e5663776\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_103e465f37fca133365e91c63a81154ccce3dc36.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_708a9b4877a8ed5cd3845bef8bae68a8883f5b51.jar" />
+    </item>
+    <item
+        is-multidex="false"
+        jar="C:\Users\aleix\.android\build-cache\f893a05c710ea1f428dd9ad48db6d51eba8c9960\output\jars\classes.jar"
+        jumboMode="false"
+        optimize="true"
+        revision="25.0.2"
+        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
+        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_ffb03ec1fec3f00d9c39d575e1e174e28e4e2fdb.jar" />
+    </item>
+
+</items>

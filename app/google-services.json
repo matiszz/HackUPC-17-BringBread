@@ -1,0 +1,55 @@
+{
+  "project_info": {
+    "project_number": "701242272508",
+    "firebase_url": "https://hackupc-424dc.firebaseio.com",
+    "project_id": "hackupc-424dc",
+    "storage_bucket": "hackupc-424dc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:701242272508:android:559d402b791a9aa4",
+        "android_client_info": {
+          "package_name": "com.banannaps.cool.bringbread"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "701242272508-38pli4vapgkl873lteemr6b3qb13h633.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.banannaps.cool.bringbread",
+            "certificate_hash": "69f4dc8bdd6f5727f727d3148aed456e1694d4ae"
+          }
+        },
+        {
+          "client_id": "701242272508-76o11lrkisfocc5jkcv3576262id4o63.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBgUsORbAt2KqOBiUp7HgG9_w16cblN5hI"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 2,
+          "other_platform_oauth_client": [
+            {
+              "client_id": "701242272508-76o11lrkisfocc5jkcv3576262id4o63.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
