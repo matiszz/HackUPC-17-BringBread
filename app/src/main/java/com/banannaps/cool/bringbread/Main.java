@@ -7,6 +7,7 @@ import android.content.Intent;
 import android.content.pm.PackageManager;
 import android.location.Location;
 import android.os.Bundle;
+import android.os.Debug;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v4.app.ActivityCompat;
@@ -44,7 +45,7 @@ import java.util.Date;
 import static android.app.Notification.PRIORITY_MAX;
 
 public class Main extends AppCompatActivity implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
-    private final int INTERVAL = 1000 * 60 * 2;
+    private final int INTERVAL = 1000 *  2;
     LocationRequest mLocationRequest;
     GoogleApiClient mGoogleApiClient;
     Location mCurrentLocation;
@@ -59,7 +60,6 @@ public class Main extends AppCompatActivity implements LocationListener, GoogleA
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         setBtnAfegir();
         setListView();
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
@@ -118,6 +118,8 @@ public class Main extends AppCompatActivity implements LocationListener, GoogleA
     public void onLocationChanged(Location location) {
         Log.d("change", "Firing onLocationChanged..............................................");
         mCurrentLocation = location;
+        Log.d("location", location.toString());
+        Toast.makeText(this, mCurrentLocation.toString(), Toast.LENGTH_SHORT).show();
 
     }
     @Override
