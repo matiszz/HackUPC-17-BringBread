@@ -5,6 +5,7 @@ import android.app.PendingIntent;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.location.Location;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -28,10 +29,26 @@ import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
+import com.google.android.gms.common.ConnectionResult;
+import com.google.android.gms.common.GooglePlayServicesUtil;
+import com.google.android.gms.common.api.GoogleApiClient;
+import com.google.android.gms.common.api.PendingResult;
+import com.google.android.gms.common.api.Status;
+import com.google.android.gms.location.LocationListener;
+import com.google.android.gms.location.LocationRequest;
+import com.google.android.gms.location.LocationServices;
+
+import java.text.DateFormat;
+import java.util.Date;
 
 import static android.app.Notification.PRIORITY_MAX;
 
-public class Main extends AppCompatActivity {
+public class Main extends AppCompatActivity implements LocationListener, GoogleApiClient.ConnectionCallbacks, GoogleApiClient.OnConnectionFailedListener {
+    private final int INTERVAL = 1000 * 60 * 2;
+    LocationRequest mLocationRequest;
+    GoogleApiClient mGoogleApiClient;
+    Location mCurrentLocation;
+
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
     Button btnNotif;
@@ -55,10 +72,58 @@ public class Main extends AppCompatActivity {
                 rebreMissatge();
             }
         });
+        connectaGps();
+
 
         /////////////////////
     }
+    protected void createLocationRequest(){
+        mLocationRequest = new LocationRequest();
+        mLocationRequest.setInterval(INTERVAL);
+        mLocationRequest.setFastestInterval(INTERVAL);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
 
+    }
+    private void connectaGps(){
+        createLocationRequest();
+        mGoogleApiClient = new GoogleApiClient.Builder(this)
+                .addApi(LocationServices.API)
+                .addConnectionCallbacks(this)
+                .addOnConnectionFailedListener(this)
+                .build();
+    }
+    @Override
+    public void onStart() {
+        super.onStart();
+        Log.d("connetion", "onStart fired ..............");
+        mGoogleApiClient.connect();
+    }
+
+    @Override
+    public void onConnected(Bundle bundle) {
+        Log.d("connected", "onConnected - isConnected ...............: " + mGoogleApiClient.isConnected());
+        startLocationUpdates();
+    }
+    protected void startLocationUpdates() {
+        try{
+            PendingResult<Status> pendingResult = LocationServices.FusedLocationApi.requestLocationUpdates(
+                    mGoogleApiClient, mLocationRequest, this);
+        }
+        catch (SecurityException e){
+
+        }
+        Log.d("location", "Location update started ..............: ");
+    }
+    @Override
+    public void onLocationChanged(Location location) {
+        Log.d("change", "Firing onLocationChanged..............................................");
+        mCurrentLocation = location;
+
+    }
+    @Override
+    public void onConnectionSuspended(int i) {
+
+    }
     private void rebreMissatge() {
 
         int mId = 0;
@@ -188,6 +253,11 @@ public class Main extends AppCompatActivity {
             // other 'case' lines to check for other
             // permissions this app might request
         }
+    }
+
+    @Override
+    public void onConnectionFailed(ConnectionResult connectionfail){
+
     }
 
 }
