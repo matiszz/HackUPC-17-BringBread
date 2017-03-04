@@ -206,7 +206,6 @@ public class Main extends AppCompatActivity {
             double lon = Double.parseDouble(sLon);
 
             nomTasques.add(nomMissatge);
-            locTasques.add(sLat);
             setListView();
 
             locTasques.add(nomLloc);

@@ -24,13 +24,13 @@ public class firebasemessage extends FirebaseMessagingService {
 
         String sLat = message.getData().get("lat");
         String sLon = message.getData().get("lon");
-//        String nomLloc = message.getData().get("loc");
+        String nomLloc = message.getData().get("loc");
 
         Intent intent = new Intent();
         intent.putExtra("nom", nomMissatge);
         intent.putExtra("lat", sLat);
         intent.putExtra("lon", sLon);
-//        intent.putExtra("loc", nomLloc);
+        intent.putExtra("loc", nomLloc);
         intent.setAction("com.banannaps.cool.bringbread.onMessageRecieved");
         sendBroadcast(intent);
     }
