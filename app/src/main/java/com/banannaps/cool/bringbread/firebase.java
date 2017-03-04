@@ -11,8 +11,6 @@ import com.google.firebase.iid.FirebaseInstanceIdService;
 
 import org.json.JSONObject;
 
-import io.socket.client.Url;
-
 import static android.content.ContentValues.TAG;
 
 /**
