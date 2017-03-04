@@ -33,6 +33,7 @@ import android.widget.TextView;
 import android.widget.Toast;
 
 import java.util.ArrayList;
+import java.util.List;
 
 import static android.app.Notification.PRIORITY_MAX;
 import static com.banannaps.cool.bringbread.AfegirTasca.llocsPredefs;
@@ -49,7 +50,7 @@ public class Main extends AppCompatActivity {
     // El map Llocs com a clau el Nom del lloc, i un Vector de 2 doubles amb latitud i longitud.
     public static ArrayMap<String, double[]> Llocs = new ArrayMap<>();
     public static ArrayMap<String, double[]> pendents = new ArrayMap<>();
-
+    //public static List<Tasca> pendents = new ArrayList<>();
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
