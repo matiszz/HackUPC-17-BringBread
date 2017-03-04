@@ -1,5 +1,6 @@
 package com.banannaps.cool.bringbread;
 
+import android.content.Intent;
 import android.util.Log;
 
 import com.google.firebase.messaging.FirebaseMessagingService;
@@ -9,9 +10,9 @@ import java.util.ArrayList;
 
 import static com.banannaps.cool.bringbread.AfegirTasca.llocsPredefs;
 import static com.banannaps.cool.bringbread.Main.Llocs;
+import static com.banannaps.cool.bringbread.Main.adaptador;
 import static com.banannaps.cool.bringbread.Main.locTasques;
 import static com.banannaps.cool.bringbread.Main.nomTasques;
-
 
 public class firebasemessage extends FirebaseMessagingService {
 
@@ -23,18 +24,14 @@ public class firebasemessage extends FirebaseMessagingService {
 
         String sLat = message.getData().get("lat");
         String sLon = message.getData().get("lon");
-//        TODO: String nomLloc = message.getData().get("loc");
+//        String nomLloc = message.getData().get("loc");
 
-//        double lat = Double.parseDouble(sLat);
-//        double lon = Double.parseDouble(sLon);
-
-        nomTasques.add(nomMissatge);
-        locTasques.add(sLat);//(sLat+", "+sLon);
-
-//        TODO: locTasques.add(nomLloc);
-//        TODO: Llocs.put(nomLloc, new double[] {lat, non});
-//        TODO: llocsPredefs = new ArrayList();
-//        TODO: if(llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
-
+        Intent intent = new Intent();
+        intent.putExtra("nom", nomMissatge);
+        intent.putExtra("lat", sLat);
+        intent.putExtra("lon", sLon);
+//        intent.putExtra("loc", nomLloc);
+        intent.setAction("com.banannaps.cool.bringbread.onMessageRecieved");
+        sendBroadcast(intent);
     }
 }

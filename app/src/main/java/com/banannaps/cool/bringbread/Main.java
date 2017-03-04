@@ -34,12 +34,14 @@ import android.widget.Toast;
 import java.util.ArrayList;
 
 import static android.app.Notification.PRIORITY_MAX;
+import static com.banannaps.cool.bringbread.AfegirTasca.llocsPredefs;
 
 public class Main extends AppCompatActivity {
 
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
     Button btnNotif;
+    static ArrayAdapter adaptador;
 
     public static ArrayList<String> nomTasques = new ArrayList<>();
     public static ArrayList<String> locTasques = new ArrayList<>();
@@ -54,6 +56,7 @@ public class Main extends AppCompatActivity {
 
         setBtnAfegir();
         setListView();
+
         startService(new Intent(this, BackgroundLocationService.class));
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
@@ -80,14 +83,14 @@ public class Main extends AppCompatActivity {
         });
     }
 
-    private void setListView() {
+    public void setListView() {
+
+        lv_tasques = (ListView) findViewById(R.id.lv_tasques);
 
         nomTasques.add("Comprar pa");
         locTasques.add("Panaderia");
 
-        lv_tasques = (ListView) findViewById(R.id.lv_tasques);
-
-        ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
+        adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
@@ -154,6 +157,38 @@ public class Main extends AppCompatActivity {
 
             // other 'case' lines to check for other
             // permissions this app might request
+        }
+    }
+
+    @Override
+    protected void onResume() {
+        super.onResume();
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.banannaps.cool.bringbread.onMessageRecieved");
+        MyBroadcastReceiver receiver = new MyBroadcastReceiver();
+        registerReceiver(receiver, intentFilter);
+    }
+
+    private class MyBroadcastReceiver extends BroadcastReceiver {
+        @Override
+        public void onReceive(Context context, Intent intent) {
+            Bundle extras = intent.getExtras();
+
+            String nomMissatge = extras.getString("nom");
+            String sLat = extras.getString("lat");
+            String sLon = extras.getString("lon");
+//            String nomLloc = extras.getString("loc");
+
+            double lat = Double.parseDouble(sLat);
+            double lon = Double.parseDouble(sLon);
+
+            nomTasques.add(nomMissatge);
+            locTasques.add(sLat);
+
+//            locTasques.add(nomLloc);
+//            Llocs.put(nomLloc, new double[] {lat, lon});
+//            llocsPredefs = new ArrayList();
+//            if(llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
         }
     }
 
