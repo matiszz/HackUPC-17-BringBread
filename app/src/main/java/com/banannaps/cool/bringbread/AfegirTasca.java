@@ -2,7 +2,6 @@ package com.banannaps.cool.bringbread;
 
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.util.ArrayMap;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.Button;
