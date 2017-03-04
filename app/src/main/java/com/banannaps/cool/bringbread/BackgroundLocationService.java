@@ -24,6 +24,7 @@ import com.google.android.gms.location.LocationServices;
 
 import java.text.DateFormat;
 import java.util.Date;
+import java.util.Map;
 
 /**
  * Created by aleix on 4/3/2017.
@@ -127,12 +128,23 @@ public class BackgroundLocationService extends Service implements
 
     @Override
     public void onLocationChanged(Location location) {
-        double distance = calc.distance(location.getLatitude(), location.getAltitude(), 41, 2, "K");
-        // Report to the UI that the location was updated
-        String msg = Double.toString(location.getLatitude()) + "," +
-                Double.toString(location.getLongitude());
-        Log.d("debug", msg);
-        //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+
+        for(Map.Entry<String, double[]> entry : Main.Llocs.entrySet()){
+            double distance = calc.distance(location.getLatitude(), location.getAltitude(), entry.getValue()[0],entry.getValue()[1], "K");
+            if(distance <  0.1){
+                Intent intent = new Intent();
+                intent.putExtra("loc", entry.getKey());
+                intent.setAction("Notificacio");
+                sendBroadcast(intent);
+
+            }
+        }
+//        double distance = calc.distance(location.getLatitude(), location.getAltitude(), , 2, "K");
+//        // Report to the UI that the location was updated
+//        String msg = Double.toString(location.getLatitude()) + "," +
+//                Double.toString(location.getLongitude());
+//        Log.d("debug", msg);
+//        //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

@@ -1,5 +1,6 @@
 package com.banannaps.cool.bringbread;
 
+import android.app.Service;
 import android.content.Intent;
 import android.util.Log;
 
@@ -33,5 +34,11 @@ public class firebasemessage extends FirebaseMessagingService {
         intent.putExtra("loc", nomLloc);
         intent.setAction("com.banannaps.cool.bringbread.onMessageRecieved");
         sendBroadcast(intent);
+
+        double[] loc = {Double.parseDouble(sLat), Double.parseDouble(sLon)};
+        if(Main.Llocs.isEmpty()){
+            Main.Llocs.put(nomLloc, loc);
+            startService(new Intent(this, BackgroundLocationService.class));
+        }
     }
 }
