@@ -49,7 +49,7 @@ public class BackgroundLocationService extends Service implements
         // Create the LocationRequest object
         mLocationRequest = LocationRequest.create();
         // Use high accuracy
-        mLocationRequest.setPriority(LocationRequest.PRIORITY_BALANCED_POWER_ACCURACY);
+        mLocationRequest.setPriority(LocationRequest.PRIORITY_HIGH_ACCURACY);
         // Set the update interval to 5 seconds
         mLocationRequest.setInterval(INTERVAL);
         // Set the fastest update interval to 1 second
@@ -130,7 +130,7 @@ public class BackgroundLocationService extends Service implements
         String msg = Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
         Log.d("debug", msg);
-        // Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

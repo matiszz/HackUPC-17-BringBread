@@ -65,6 +65,7 @@ public class Main extends AppCompatActivity implements LocationListener, GoogleA
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
+        startService(new Intent(this, BackgroundLocationService.class));
         btnNotif = (Button) findViewById(R.id.btnNotific);
         btnNotif.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -72,7 +73,7 @@ public class Main extends AppCompatActivity implements LocationListener, GoogleA
                 rebreMissatge();
             }
         });
-        connectaGps();
+        //connectaGps();
 
 
         /////////////////////
@@ -96,7 +97,7 @@ public class Main extends AppCompatActivity implements LocationListener, GoogleA
     public void onStart() {
         super.onStart();
         Log.d("connetion", "onStart fired ..............");
-        mGoogleApiClient.connect();
+        //mGoogleApiClient.connect();
     }
 
     @Override
