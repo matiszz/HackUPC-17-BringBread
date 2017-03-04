@@ -34,7 +34,6 @@ public class AsyncT extends AsyncTask<Void, Void, Void> {
             httpURLConnection.getInputStream();
             JSONObject jsonObject = new JSONObject();
             jsonObject.put("token", url);
-            wait(10);
             DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
             wr.writeBytes(jsonObject.toString());
             wr.flush();

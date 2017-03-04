@@ -172,6 +172,7 @@ public class Main extends AppCompatActivity {
     private class MyBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
+            Log.d("ARRIBAT:", "Arriba al mybroadcast...");
             Bundle extras = intent.getExtras();
 
             String nomMissatge = extras.getString("nom");
@@ -184,6 +185,7 @@ public class Main extends AppCompatActivity {
 
             nomTasques.add(nomMissatge);
             locTasques.add(sLat);
+            setListView();
 
 //            locTasques.add(nomLloc);
 //            Llocs.put(nomLloc, new double[] {lat, lon});
