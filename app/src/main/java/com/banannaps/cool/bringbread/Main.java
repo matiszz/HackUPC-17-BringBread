@@ -41,8 +41,6 @@ public class Main extends AppCompatActivity {
     FloatingActionButton btn_afegir;
     Button btnNotif;
 
-    public static String ACTION_FET = "Main.this";
-
     public static ArrayList<String> nomTasques = new ArrayList<>();
     public static ArrayList<String> locTasques = new ArrayList<>();
 
@@ -82,7 +80,7 @@ public class Main extends AppCompatActivity {
         });
     }
 
-    public void setListView() {
+    private void setListView() {
 
         nomTasques.add("Comprar pa");
         locTasques.add("Panaderia");
@@ -111,33 +109,6 @@ public class Main extends AppCompatActivity {
                 String itemValue = (String) lv_tasques.getItemAtPosition(position);
             }
         }); */
-    }
-
-    private void rebreMissatge(String nom) {
-        // Set up notification
-        android.support.v4.app.NotificationCompat.Builder notifAprop = new android.support.v4.app.NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.bread)
-                .setContentTitle(nom)
-                .setContentText("Swipe per descartar la tasca")
-                .setAutoCancel(true)
-                .setPriority(PRIORITY_MAX);
-
-        // intentClicat = Quan es clica. constPila = Acció quan torna.
-        Intent intentClicat = new Intent(this, DialegNotificacio.class);
-        android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
-        constPila.addParentStack(Main.class);
-        constPila.addNextIntent(intentClicat);
-        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifAprop.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        //Intent per "Fet"
-        Intent fetIntent = new Intent();
-        fetIntent.setAction(ACTION_FET);
-        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, fetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
-
-        mNotificationManager.notify((int) System.currentTimeMillis(), notifAprop.build());
     }
 
     @Override

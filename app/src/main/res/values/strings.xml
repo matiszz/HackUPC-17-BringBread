@@ -15,7 +15,9 @@
     <string name="dialog_snooze">Més tard</string>
 
     <string name="hint_name">Comprar pa...</string>
-    <string name="notif_text2">Llisca a esquerra o dreta per ingorar-me.</string>
+    <string name="notif_text2">Llisca a esquerra o dreta per ingorar-me</string>
+
+    <string name="error_dialog_white">Sembla que hi ha un camp en blanc!</string>
 
     <!--<string name=""></string>-->
 
