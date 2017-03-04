@@ -29,7 +29,7 @@ public class firebase extends FirebaseInstanceIdService {
     }
     public void sendRegistrationToServer(String token){
         AsyncT task = new AsyncT("http://hackupc2017.herokuapp.com/register" +
-                "-?token="+token);
+                "?token="+token);
         task.execute();
     }
 }
