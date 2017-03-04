@@ -26,6 +26,8 @@ import java.text.DateFormat;
 import java.util.Date;
 import java.util.Map;
 
+import static android.content.ContentValues.TAG;
+
 /**
  * Created by aleix on 4/3/2017.
  */
@@ -132,9 +134,10 @@ public class BackgroundLocationService extends Service implements
         for(Map.Entry<String, double[]> entry : Main.Llocs.entrySet()){
             double distance = calc.distance(location.getLatitude(), location.getAltitude(), entry.getValue()[0],entry.getValue()[1], "K");
             if(distance <  0.1){
+                Log.d("onLocationChanged: ", Double.toString(distance));
                 Intent intent = new Intent();
                 intent.putExtra("loc", entry.getKey());
-                intent.setAction("Notificacio");
+                intent.setAction("com.banannaps.cool.bringbread.Notificacio");
                 sendBroadcast(intent);
 
             }
