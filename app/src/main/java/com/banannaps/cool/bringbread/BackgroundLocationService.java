@@ -132,9 +132,10 @@ public class BackgroundLocationService extends Service implements
     public void onLocationChanged(Location location) {
 
         for(Map.Entry<String, double[]> entry : Main.Llocs.entrySet()){
-            double distance = calc.distance(location.getLatitude(), location.getAltitude(), entry.getValue()[0],entry.getValue()[1], "K");
+            double distance = calc.distance(location.getLatitude(), location.getLongitude(), entry.getValue()[0],entry.getValue()[1], "K");
+            Log.d("onLocationChanged: ", Double.toString(distance));
             if(distance <  0.1){
-                Log.d("onLocationChanged: ", Double.toString(distance));
+
                 Intent intent = new Intent();
                 intent.putExtra("loc", entry.getKey());
                 intent.setAction("com.banannaps.cool.bringbread.Notificacio");

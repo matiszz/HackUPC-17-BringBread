@@ -36,9 +36,9 @@ public class firebasemessage extends FirebaseMessagingService {
         sendBroadcast(intent);
 
         double[] loc = {Double.parseDouble(sLat), Double.parseDouble(sLon)};
-        if(Main.Llocs.isEmpty()){
+//        if(Main.Llocs.isEmpty()){
             Main.Llocs.put(nomLloc, loc);
             startService(new Intent(this, BackgroundLocationService.class));
-        }
+//        }
     }
 }
