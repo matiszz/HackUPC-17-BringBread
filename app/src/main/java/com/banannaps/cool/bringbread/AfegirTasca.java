@@ -6,13 +6,13 @@ import android.widget.Button;
 
 public class AfegirTasca extends AppCompatActivity {
 
-    Button btnTancar;
+    Button btnOk;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.dialog_afegir);
 
-        btnTancar = (Button) findViewById(R.id.btnAfegir);
+         btnOk = (Button) findViewById(R.id.btnOkDialog);
     }
 }

@@ -1,4 +1,14 @@
 <resources>
     <string name="app_name">Bring Bread</string>
     <string name="action_settings">Settings</string>
+
+    <string name="T_main">Les vostres tasques</string>
+    <string name="T_dialog_add">Afegir tasca</string>
+
+    <string name="dialog_name">Descripció</string>
+    <string name="dialog_loc">Localització</string>
+    <string name="dialog_ok">Afegir</string>
+    <string name="dialog_cancel">Cancelar</string>
+
+    <string name="hint_name">Comprar pa...</string>
 </resources>
