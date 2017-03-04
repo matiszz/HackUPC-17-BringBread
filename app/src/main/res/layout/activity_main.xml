@@ -22,12 +22,4 @@
         app:layout_anchor="@+id/lv_tasques"
         app:layout_anchorGravity="bottom|right"/>
 
-    <Button
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="Holi"
-        android:id="@+id/btnNotific"
-        app:layout_anchor="@+id/lv_tasques"
-        app:layout_anchorGravity="bottom|left"/>
-
 </android.support.design.widget.CoordinatorLayout>

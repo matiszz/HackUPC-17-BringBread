@@ -40,7 +40,6 @@ public class Main extends AppCompatActivity {
 
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
-    Button btnNotif;
     static ArrayAdapter adaptador;
 
     public static ArrayList<String> nomTasques = new ArrayList<>();
@@ -62,14 +61,10 @@ public class Main extends AppCompatActivity {
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
 
-        btnNotif = (Button) findViewById(R.id.btnNotific);
-        btnNotif.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-               // rebreMissatge();
-            }
-        });
-
+        IntentFilter intentFilter = new IntentFilter();
+        intentFilter.addAction("com.banannaps.cool.bringbread.onMessageRecieved");
+        MyBroadcastReceiver receiver = new MyBroadcastReceiver();
+        registerReceiver(receiver, intentFilter);
     }
 
     private void setBtnAfegir() {
@@ -84,11 +79,7 @@ public class Main extends AppCompatActivity {
     }
 
     public void setListView() {
-
         lv_tasques = (ListView) findViewById(R.id.lv_tasques);
-
-        nomTasques.add("Comprar pa");
-        locTasques.add("Panaderia");
 
         adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
             @Override
@@ -160,13 +151,11 @@ public class Main extends AppCompatActivity {
         }
     }
 
+    // Tot aixo es per refrescar automaticament el ListView quan arriba un missatge nou.
     @Override
     protected void onResume() {
         super.onResume();
-        IntentFilter intentFilter = new IntentFilter();
-        intentFilter.addAction("com.banannaps.cool.bringbread.onMessageRecieved");
-        MyBroadcastReceiver receiver = new MyBroadcastReceiver();
-        registerReceiver(receiver, intentFilter);
+
     }
 
     private class MyBroadcastReceiver extends BroadcastReceiver {
