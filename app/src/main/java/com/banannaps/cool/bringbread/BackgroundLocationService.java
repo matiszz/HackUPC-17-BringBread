@@ -23,7 +23,10 @@ import com.google.android.gms.location.LocationRequest;
 import com.google.android.gms.location.LocationServices;
 
 import java.text.DateFormat;
+import java.util.ArrayList;
 import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
 import java.util.Map;
 import java.util.jar.*;
 
@@ -131,22 +134,30 @@ public class BackgroundLocationService extends Service implements
 
     @Override
     public void onLocationChanged(Location location) {
-
-        for(Map.Entry<String, double[]> entry : Main.pendents.entrySet()){
-            double distance = calc.distance(location.getLatitude(), location.getLongitude(), entry.getValue()[0],entry.getValue()[1], "K");
+        List<String> keys = new ArrayList<>();
+        for(Map.Entry<String, double[]> entry : Main.pendents.entrySet()) {
+            double distance = calc.distance(location.getLatitude(), location.getLongitude(), entry.getValue()[0], entry.getValue()[1], "K");
             Log.d("onLocationChanged: ", Double.toString(distance));
-            if(distance <  0.1){
+            if (distance < 0.1) {
 
                 Intent intent = new Intent();
                 intent.putExtra("loc", entry.getKey());
                 intent.setAction("com.banannaps.cool.bringbread.Notificacio");
                 sendBroadcast(intent);
-                Main.pendents.remove(entry.getKey());
-                if(Main.pendents.isEmpty()){
-                    stopService(new Intent(this, BackgroundLocationService.class));
-                }
+                //
+                //Main.pendents.remove(entry.getKey());
+                keys.add(entry.getKey());
             }
         }
+
+        for(String key : keys){
+            Main.pendents.remove(key);
+        }
+
+        if(Main.pendents.isEmpty()){
+            stopService(new Intent(this, BackgroundLocationService.class));
+        }
+
 //        double distance = calc.distance(location.getLatitude(), location.getAltitude(), , 2, "K");
 //        // Report to the UI that the location was updated
 //        String msg = Double.toString(location.getLatitude()) + "," +
