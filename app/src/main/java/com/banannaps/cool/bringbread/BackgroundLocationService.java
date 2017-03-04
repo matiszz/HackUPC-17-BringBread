@@ -25,6 +25,7 @@ import com.google.android.gms.location.LocationServices;
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Map;
+import java.util.jar.*;
 
 import static android.content.ContentValues.TAG;
 
@@ -131,7 +132,7 @@ public class BackgroundLocationService extends Service implements
     @Override
     public void onLocationChanged(Location location) {
 
-        for(Map.Entry<String, double[]> entry : Main.Llocs.entrySet()){
+        for(Map.Entry<String, double[]> entry : Main.pendents.entrySet()){
             double distance = calc.distance(location.getLatitude(), location.getLongitude(), entry.getValue()[0],entry.getValue()[1], "K");
             Log.d("onLocationChanged: ", Double.toString(distance));
             if(distance <  0.1){
@@ -140,7 +141,10 @@ public class BackgroundLocationService extends Service implements
                 intent.putExtra("loc", entry.getKey());
                 intent.setAction("com.banannaps.cool.bringbread.Notificacio");
                 sendBroadcast(intent);
-
+                Main.pendents.remove(entry.getKey());
+                if(Main.pendents.isEmpty()){
+                    stopService(new Intent(this, BackgroundLocationService.class));
+                }
             }
         }
 //        double distance = calc.distance(location.getLatitude(), location.getAltitude(), , 2, "K");
