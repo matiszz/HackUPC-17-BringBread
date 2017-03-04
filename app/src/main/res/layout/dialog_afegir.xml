@@ -25,15 +25,18 @@
 
         <Button
             android:id="@+id/btnCancelDialog"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_cancel"/>
+            android:text="@string/dialog_cancel"
+            android:layout_weight="1"/>
 
         <Button
             android:id="@+id/btnOkDialog"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/dialog_ok"/>
+            android:text="@string/dialog_ok"
+            android:layout_gravity="right"
+            android:layout_weight="1"/>
 
     </LinearLayout>
 
