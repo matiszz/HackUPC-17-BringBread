@@ -67,9 +67,7 @@ public class AfegirTasca extends AppCompatActivity implements View.OnClickListen
 
                     Log.d("ACCEPTED", "Processant: " + nom + ", a " + lloc + " | LAT = " + lat + "; LON = " + lon + "");
 
-                    //TODO: Fer el push de les dades aqui
-
-                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat=" + Double.toString(lat) + "&lon=" + Double.toString(lon) + "&nom=" + processaString(nom)+"&lloc="+lloc.replace(" ","%20"));
+                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat=" + Double.toString(lat) + "&lon=" + Double.toString(lon) + "&nom=" + processaString(nom));
                     async.execute();
 
                     finish();

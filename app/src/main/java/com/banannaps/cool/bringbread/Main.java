@@ -7,6 +7,7 @@ import android.content.Context;
 import android.content.Intent;
 import android.content.IntentFilter;
 import android.content.pm.PackageManager;
+import android.graphics.BitmapFactory;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -123,8 +124,46 @@ public class Main extends AppCompatActivity {
         if (id == R.id.action_settings) {
             return true;
         }
+        if (id == R.id.btnDoSomething) {
+            rebreMissatge("Comprar pa", "Cafeteria");
+            return true;
+        }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    public static String ACTION_FET = "Main.this";
+
+    public void rebreMissatge(String nom, String lloc) {
+        // Set up notification
+        android.support.v4.app.NotificationCompat.Builder notifAprop = new android.support.v4.app.NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.check)
+                .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),R.drawable.bread))
+                .setContentTitle(nom)
+                .setContentText("A prop de "+lloc+"")
+                .setContentText("Fes swipe per descartar la tasca")
+                .setAutoCancel(true)
+                .setPriority(PRIORITY_MAX);
+
+        // intentClicat = Quan es clica. constPila = Acció quan torna.
+        Intent intentClicat = new Intent(this, DialegNotificacio.class);
+        intentClicat.putExtra("nom", nom);
+        intentClicat.putExtra("lloc", lloc);
+
+        android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
+        constPila.addParentStack(Main.class);
+        constPila.addNextIntent(intentClicat);
+        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        //Intent per "Fet"
+        Intent fetIntent = new Intent();
+        fetIntent.setAction(ACTION_FET);
+        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, fetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
+
+        mNotificationManager.notify((int) System.currentTimeMillis(), notifAprop.build());
     }
 
     @Override
@@ -152,12 +191,6 @@ public class Main extends AppCompatActivity {
     }
 
     // Tot aixo es per refrescar automaticament el ListView quan arriba un missatge nou.
-    @Override
-    protected void onResume() {
-        super.onResume();
-
-    }
-
     private class MyBroadcastReceiver extends BroadcastReceiver {
         @Override
         public void onReceive(Context context, Intent intent) {
@@ -167,7 +200,7 @@ public class Main extends AppCompatActivity {
             String nomMissatge = extras.getString("nom");
             String sLat = extras.getString("lat");
             String sLon = extras.getString("lon");
-//            String nomLloc = extras.getString("loc");
+            String nomLloc = extras.getString("loc");
 
             double lat = Double.parseDouble(sLat);
             double lon = Double.parseDouble(sLon);
@@ -176,10 +209,10 @@ public class Main extends AppCompatActivity {
             locTasques.add(sLat);
             setListView();
 
-//            locTasques.add(nomLloc);
-//            Llocs.put(nomLloc, new double[] {lat, lon});
-//            llocsPredefs = new ArrayList();
-//            if(llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
+            locTasques.add(nomLloc);
+            Llocs.put(nomLloc, new double[] {lat, lon});
+            llocsPredefs = new ArrayList();
+            if(llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
         }
     }
 
