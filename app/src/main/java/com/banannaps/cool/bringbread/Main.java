@@ -6,6 +6,7 @@ import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
+import android.util.ArrayMap;
 import android.util.Log;
 import android.view.View;
 import android.view.Menu;
@@ -19,12 +20,12 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import static android.R.id.content;
-import static android.R.id.list;
-
 public class Main extends AppCompatActivity {
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
+
+    // El map Llocs com a clau el Nom del lloc, i un Vecotr de 2 doubles amb latitud i longitud.
+    public static ArrayMap<String, double[]> Llocs = new ArrayMap<>();
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
