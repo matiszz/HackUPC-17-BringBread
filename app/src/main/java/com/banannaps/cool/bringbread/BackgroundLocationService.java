@@ -207,7 +207,7 @@ public class BackgroundLocationService extends Service implements
          */
         if (connectionResult.hasResolution()) {
 
-            // If no resolution is available, display an error dialog
+            // If n o resolution is available, display an error dialog
         } else {
 
         }
