@@ -26,7 +26,7 @@ public class Notificacio extends AppCompatActivity {
                 .setAutoCancel(true)
                 .setPriority(PRIORITY_MAX);
 
-        // intentClicat = Quan es clica. constPila = Acció quan torna.
+//         intentClicat = Quan es clica. constPila = Acció quan torna.
         Intent intentClicat = new Intent(this, DialegNotificacio.class);
         android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
         constPila.addParentStack(Main.class);
