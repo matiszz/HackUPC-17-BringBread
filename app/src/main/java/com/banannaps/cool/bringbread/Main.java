@@ -27,7 +27,7 @@ import static android.R.id.list;
 
 public class Main extends AppCompatActivity {
     ListView lv_tasques;
-    Button btn_afegir;
+    FloatingActionButton btn_afegir;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -39,7 +39,7 @@ public class Main extends AppCompatActivity {
     }
 
     private void setBtnAfegir() {
-        btn_afegir = (Button) findViewById(R.id.btnAfegir);
+        btn_afegir = (FloatingActionButton) findViewById(R.id.btnAfegir);
         btn_afegir.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
