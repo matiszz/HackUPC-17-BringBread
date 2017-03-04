@@ -130,7 +130,7 @@ public class BackgroundLocationService extends Service implements
         String msg = Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
         Log.d("debug", msg);
-        Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
+        //Toast.makeText(this, msg, Toast.LENGTH_SHORT).show();
     }
 
     @Override

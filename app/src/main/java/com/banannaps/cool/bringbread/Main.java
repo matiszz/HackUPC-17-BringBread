@@ -31,15 +31,22 @@ import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import java.util.ArrayList;
+
 import static android.app.Notification.PRIORITY_MAX;
 
 public class Main extends AppCompatActivity {
+
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
     Button btnNotif;
+
     public static String ACTION_FET = "Main.this";
 
-    // El map Llocs com a clau el Nom del lloc, i un Vecotr de 2 doubles amb latitud i longitud.
+    public static ArrayList<String> nomTasques = new ArrayList<>();
+    public static ArrayList<String> locTasques = new ArrayList<>();
+
+    // El map Llocs com a clau el Nom del lloc, i un Vector de 2 doubles amb latitud i longitud.
     public static ArrayMap<String, double[]> Llocs = new ArrayMap<>();
 
     @Override
@@ -58,38 +65,10 @@ public class Main extends AppCompatActivity {
         btnNotif.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                rebreMissatge();
+               // rebreMissatge();
             }
         });
 
-    }
-
-    private void rebreMissatge() {
-
-        // Set up notification
-        NotificationCompat.Builder notifAprop = new NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.bread)
-                .setContentTitle("Comprar pa")
-                .setContentText(""+R.string.notif_text2+"")
-                .setAutoCancel(true)
-                .setPriority(PRIORITY_MAX);
-
-        // intentClicat = Quan es clica. constPila = Acció quan torna.
-        Intent intentClicat = new Intent(this, DialegNotificacio.class);
-        TaskStackBuilder constPila = TaskStackBuilder.create(this);
-        constPila.addParentStack(Main.class);
-        constPila.addNextIntent(intentClicat);
-        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifAprop.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-
-        //Intent per "Fet"
-        Intent fetIntent = new Intent();
-        fetIntent.setAction(ACTION_FET);
-        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, fetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
-
-        mNotificationManager.notify((int) System.currentTimeMillis(), notifAprop.build());
     }
 
     private void setBtnAfegir() {
@@ -105,9 +84,10 @@ public class Main extends AppCompatActivity {
 
     public void setListView() {
 
+        nomTasques.add("Comprar pa");
+        locTasques.add("Panaderia");
+
         lv_tasques = (ListView) findViewById(R.id.lv_tasques);
-        final String[] nomTasques = new String[] { "Comprar pa", "Comprar gel", "Comprar vodka", "Comprar llet" };
-        final String[] locTasques = new String[] { "Forn de pa", "Super", "Celler", "Super"};
 
         ArrayAdapter adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
             @Override
@@ -116,8 +96,8 @@ public class Main extends AppCompatActivity {
                 TextView nomTasca = (TextView) view.findViewById(android.R.id.text1);
                 TextView locTasca = (TextView) view.findViewById(android.R.id.text2);
 
-                nomTasca.setText(nomTasques[position]);
-                locTasca.setText(locTasques[position]);
+                nomTasca.setText(nomTasques.get(position));
+                locTasca.setText(locTasques.get(position));
                 return view;
             }
         };
@@ -131,6 +111,33 @@ public class Main extends AppCompatActivity {
                 String itemValue = (String) lv_tasques.getItemAtPosition(position);
             }
         }); */
+    }
+
+    private void rebreMissatge(String nom) {
+        // Set up notification
+        android.support.v4.app.NotificationCompat.Builder notifAprop = new android.support.v4.app.NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.bread)
+                .setContentTitle(nom)
+                .setContentText("Swipe per descartar la tasca")
+                .setAutoCancel(true)
+                .setPriority(PRIORITY_MAX);
+
+        // intentClicat = Quan es clica. constPila = Acció quan torna.
+        Intent intentClicat = new Intent(this, DialegNotificacio.class);
+        android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
+        constPila.addParentStack(Main.class);
+        constPila.addNextIntent(intentClicat);
+        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
+
+        //Intent per "Fet"
+        Intent fetIntent = new Intent();
+        fetIntent.setAction(ACTION_FET);
+        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, fetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
+
+        mNotificationManager.notify((int) System.currentTimeMillis(), notifAprop.build());
     }
 
     @Override
