@@ -64,7 +64,7 @@ public class Main extends AppCompatActivity {
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.banannaps.cool.bringbread.onMessageRecieved");
-        intentFilter.addAction("Notificacio");
+        intentFilter.addAction("com.banannaps.cool.bringbread.Notificacio");
         MyBroadcastReceiver receiver = new MyBroadcastReceiver();
         registerReceiver(receiver, intentFilter);
     }
@@ -214,13 +214,17 @@ public class Main extends AppCompatActivity {
                 llocsPredefs = new ArrayList();
                 if (llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
 
-            } else if (intent.getAction().equals("Notificacio")) {
+                Log.d("ARRIBAT:", "Era un missatge...");
+
+            } else if (intent.getAction().equals("com.banannaps.cool.bringbread.Notificacio")) {
 
                 String nomLloc = extras.getString("loc");
                 int i = locTasques.indexOf(nomLloc);
                 String tasca = nomTasques.get(i);
 
                 rebreMissatge(tasca, nomLloc);
+
+                Log.d("ARRIBAT:", "Era una notificacio");
             }
         }
     }
