@@ -64,6 +64,7 @@ public class Main extends AppCompatActivity {
 
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction("com.banannaps.cool.bringbread.onMessageRecieved");
+        intentFilter.addAction("Notificacio");
         MyBroadcastReceiver receiver = new MyBroadcastReceiver();
         registerReceiver(receiver, intentFilter);
     }
@@ -196,22 +197,25 @@ public class Main extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             Log.d("ARRIBAT:", "Arriba al mybroadcast...");
             Bundle extras = intent.getExtras();
+            if (intent.getAction().equals("com.banannaps.cool.bringbread.onMessageRecieved")) {
+                String nomMissatge = extras.getString("nom");
+                String sLat = extras.getString("lat");
+                String sLon = extras.getString("lon");
+                String nomLloc = extras.getString("loc");
 
-            String nomMissatge = extras.getString("nom");
-            String sLat = extras.getString("lat");
-            String sLon = extras.getString("lon");
-            String nomLloc = extras.getString("loc");
+                double lat = Double.parseDouble(sLat);
+                double lon = Double.parseDouble(sLon);
 
-            double lat = Double.parseDouble(sLat);
-            double lon = Double.parseDouble(sLon);
+                nomTasques.add(nomMissatge);
+                setListView();
 
-            nomTasques.add(nomMissatge);
-            setListView();
+                locTasques.add(nomLloc);
+                Llocs.put(nomLloc, new double[]{lat, lon});
+                llocsPredefs = new ArrayList();
+                if (llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
+            } else if (intent.getAction().equals("Notificacio")) {
 
-            locTasques.add(nomLloc);
-            Llocs.put(nomLloc, new double[] {lat, lon});
-            llocsPredefs = new ArrayList();
-            if(llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
+            }
         }
     }
 

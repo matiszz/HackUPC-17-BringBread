@@ -67,7 +67,7 @@ public class AfegirTasca extends AppCompatActivity implements View.OnClickListen
 
                     Log.d("ACCEPTED", "Processant: " + nom + ", a " + lloc + " | LAT = " + lat + "; LON = " + lon + "");
 
-                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat=" + Double.toString(lat) + "&lon=" + Double.toString(lon) + "&nom=" + processaString(nom)+ "&loc="+lloc);
+                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat=" + Double.toString(lat) + "&lon=" + Double.toString(lon) + "&nom=" + processaString(nom) + "&loc=" + processaString(lloc));
                     async.execute();
 
                     finish();
