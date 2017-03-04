@@ -11,6 +11,8 @@
     <string name="dialog_lon">Longitud</string>
     <string name="dialog_ok">Afegir</string>
     <string name="dialog_cancel">Cancelar</string>
+    <string name="dialog_done">Fet!</string>
+    <string name="dialog_snooze">Més tard</string>
 
     <string name="hint_name">Comprar pa...</string>
 </resources>
