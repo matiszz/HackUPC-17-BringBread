@@ -2,238 +2,121 @@
 <items version="2" >
 
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\565bbe840de12d0b6301d0e72f02beaf9db5f045\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_ac0dc26ed5b35beef81792d3df564cb0f0d51cea.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\AppData\Local\Android\sdk\extras\m2repository\com\android\support\constraint\constraint-layout-solver\1.0.0-beta4\constraint-layout-solver-1.0.0-beta4.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0a9cb567dc008f570c28531720168f19148da965">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\constraint-layout-solver-1.0.0-beta4_dfab34cb180fef1c93ece6d49b61c154d0813dc5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\10b1906a13af6f21f1b2d56810f931957b254f53\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_b0328f4794a2df43f6c8b74e1fc7385a65c314e0.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\2da681906c9f3b07cf131e3a51a32b65dfbcc7db\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ee394a892dd21c03a528139c1e8d4e0e1264ac84">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_11c1039ae052d9de502af9c20d82e7686099dd31.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\8179db41884e78619b6d93a280782f9645ee4fc8\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_90959656e6fcf6e7bb03af9157bb52e6532b0da7.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\eab472a3a32169f46f3e403b0efd1fcce8c69028\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="702d339bc0a81d21354cd7e2cf2b67225fa4a16c">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_7d981ff1e4a1833aaec2e4db37810f0de4132ca6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.gradle\caches\modules-2\files-2.1\io.socket\engine.io-client\0.8.3\854b49396e1e9f9bb0ab025062ddb49c4ed65ca1\engine.io-client-0.8.3.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="854b49396e1e9f9bb0ab025062ddb49c4ed65ca1">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\engine.io-client-0.8.3_1edb7dd0cf25b1f03efafd8031f10ceb5000dba9.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\1dc1ece5336b62f531187d34da33dda5f11e28f9\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_c8b12ceba8d74a69fc20a25211bd4ae67ac41459.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\2ff40d7d592b6edc1a695d19877971cdca82b359\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ea6a989b83d19b1b461281e0475a6cd6514897f8">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_47d6e34a787253891270b1429c64a929a3b8f0ce.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\d770ec1c3c0c9709e5adde6f093738488e92c942\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_330bb00a7cc447832854e40fd24858662a800646.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\3fbfb51d746beed87d2ea80c5ec261d365127b99\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="152de8da301561dcb0946471697a420d8f7a68c5">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_b541205ee622f7c116bb3196db80fae83b30f9f5.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\4db783354541fe452208a8df194f9cba3cd13dbc\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e820b7be8c035dd522da4bc822e8a76c8e27921a">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_768b3c53de7ce3c781b0f72265896a7357100bb1.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.5.0\4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83\okhttp-3.5.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.gradle\caches\modules-2\files-2.1\com.squareup.okhttp3\okhttp\3.5.0\4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83\okhttp-3.5.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="4b0bb6bfbecbdd42b97ff400af342bfe7f32bc83">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\okhttp-3.5.0_8a1f79762bc700d1f9a57a454cb5d187f12296ba.jar" />
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\okhttp-3.5.0_56ee8f68b31fcf58cea1d64b5e3b60e7e30103d1\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\8285e7d7d29c5bdd3978916632b914aa2a305e90\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.gradle\caches\modules-2\files-2.1\io.socket\engine.io-client\0.8.3\854b49396e1e9f9bb0ab025062ddb49c4ed65ca1\engine.io-client-0.8.3.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="810f41e5b7fd99f196ebeabe865ba2c54e7e76dc">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_d036fd078fe2f8a64e33a6d7ab1363cda9ede43e.jar" />
+        sha1="854b49396e1e9f9bb0ab025062ddb49c4ed65ca1">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\engine.io-client-0.8.3_d20af4a712200ca6008d10389b7b7ac133ffe2e4\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\dc147617b0cbbd7c0435e3c54ddc6af818679b55\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="fa0446a14ed5dd3725047d6399ffea771a564b30">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_adf879cc2a722cb97746cce08087abdc4df7ef1b.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.gradle\caches\modules-2\files-2.1\io.socket\socket.io-client\0.8.3\b30500232ff0668a47c9f91f02e6935457a52fb5\socket.io-client-0.8.3.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.gradle\caches\modules-2\files-2.1\io.socket\socket.io-client\0.8.3\b30500232ff0668a47c9f91f02e6935457a52fb5\socket.io-client-0.8.3.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="b30500232ff0668a47c9f91f02e6935457a52fb5">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\socket.io-client-0.8.3_f6e55962f69cf5e833ee37ca5df2439eb98a1a26.jar" />
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\socket.io-client-0.8.3_93ee5115801e7d9ecab08d51452f13423646b3b9\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\936f97811c3e0dd0b485e70f4ff72ec01668b36c\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_8bffd2908367be01db023c30f3a8debb9c7b14fc.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\14742a89d43e0d22efb1a1574a25ccfcfd4d3a7a\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="e51c2f662bb72419632af5192553c37e33890a99">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_0d604a68c69040eccb4ab5ff0016858295921451.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\26dd15619e59f0ca1d3f5383996c3804309e595c\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="67eb33110dbacb46a48175b08ae0c96761d2c17d">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_62c866d056385543c3ae23451adcc1888fb9caf6.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\023b40393992d0df8f81982788d6d8efae82b625\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\9f2b126f718af5ce817d28636b92ffedf6c1bf38\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="75575883f0348fc5d2be85f23bd10b050095cf17">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_9d97f950e492c3af683cf1cf889975a40a925218.jar" />
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_8d5c31a6d06a4023582ea0285d726593c49c3514\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\64fc7f626e9bd3b80fae4db9aad73fbaed70bf5a\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\a35bd29758927ad7a292d6d4f58af10d26e14413\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="662d7533b25a666c649c10a16b42edfb95f25a4f">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_232c18685f29e57c461fc95716765919a18735ed.jar" />
+        sha1="a61e7010aa7be5da53cd1bc5279630510c9a4912">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_bf91daa058f41f56a20be45bbe7e7e78db577fed\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\aa378fbf805e5c67e0aa0216bae21c8f82b799b4\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\87ac0d84b415795b24940a6850e726ec097a230f\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="d7c42c80f6509b9ea4db28ca7859ffae08ec5741">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_a64c8a090949cbb199dddda4ea420ade6c822c50.jar" />
+        sha1="1ac56e5801e986583cbe27f2cce57f626cc7ff93">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_7904c601f7d83d121a62713a16d3df478bbb8769\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\b50971fd4ef1918c33c1db29dfa17a519fc81ead\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="bd75f9f0296fe220da6d0ad961831b04541c4452">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_ebb078ff6b6b3c3e9422bc57307a87b4dd66d206\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\incremental-classes\debug\instant-run-bootstrap.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="569e34d8cfb96133b5d78bf6ae90c5bbe1af8c73">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run-bootstrap_9b26047a4f083a31e46942d61815744163a307b1\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\162f1107ea519701a6ea5afe43572943a3f31914\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="0d5cbbbfe040201c7569478b70a13b58fd11aab4">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_588ed30a989266851f472a9e0a1335a0f88b851f\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\c3bdc3ec7662a68bc4352fde7cb7485eb28089cf\output\jars\classes.jar"
+        jumboMode="true"
+        optimize="true"
+        revision="25.0.2"
+        sha1="3d6951cb416ebf8c66a32b9480808ca247b68344">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_3c5c406fb4aa4018ce47c2176a1bec66e86ead37\classes.dex" />
+    </item>
+    <item
+        is-multidex="true"
+        jar="C:\Users\matia\.gradle\caches\modules-2\files-2.1\com.squareup.okio\okio\1.11.0\840897fcd7223a8143f1d9b6f69714e7be34fd50\okio-1.11.0.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
         sha1="840897fcd7223a8143f1d9b6f69714e7be34fd50">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\okio-1.11.0_6219dffd3e4a98953a8054f198538fec8ad3c3f3.jar" />
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\okio-1.11.0_60c3d6d47c9af62d7809c66861af45bf95982e77\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\ec50196df5c055356d27f94311ff4be5e5663776\output\jars\classes.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="C:\Users\matia\.android\build-cache\d5ba566e4ed0e338dfb7e3e9b91675f88a9d2543\output\jars\classes.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="cb454b52545859ed2f24a6c01366805b0fa04b22">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_103e465f37fca133365e91c63a81154ccce3dc36.jar" />
+        sha1="ce9112e08a027c8620ae693983e38cdbb9f6371b">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10\classes_32f36f4f4593879e9e87b56f750192a266424060\classes.dex" />
     </item>
     <item
-        is-multidex="false"
-        jar="C:\Users\aleix\AppData\Local\Android\sdk\extras\android\m2repository\com\android\support\support-annotations\25.2.0\support-annotations-25.2.0.jar"
-        jumboMode="false"
+        is-multidex="true"
+        jar="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\incremental-runtime-classes\debug\instant-run.jar"
+        jumboMode="true"
         optimize="true"
         revision="25.0.2"
-        sha1="4a5a82a027706397fff621b22fd6fa796e91d7c5">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\support-annotations-25.2.0_708a9b4877a8ed5cd3845bef8bae68a8883f5b51.jar" />
-    </item>
-    <item
-        is-multidex="false"
-        jar="C:\Users\aleix\.android\build-cache\f893a05c710ea1f428dd9ad48db6d51eba8c9960\output\jars\classes.jar"
-        jumboMode="false"
-        optimize="true"
-        revision="25.0.2"
-        sha1="8fe8a8f77d651982ce5e18f6187dc4daf914ac57">
-        <dex dex="C:\Users\aleix\hackupc\app\build\intermediates\pre-dexed\debug\classes_ffb03ec1fec3f00d9c39d575e1e174e28e4e2fdb.jar" />
+        sha1="c82741bc129dd5f99f11a4ab8666ae24262053b6">
+        <dex dex="D:\matia\Creativity\Android Bananapps\BringBread\app\build\intermediates\transforms\dex\debug\folders\1000\10000\instant-run_c505bdb24794bfebe869adb85e3c55804a4321f3\classes.dex" />
     </item>
 
 </items>
