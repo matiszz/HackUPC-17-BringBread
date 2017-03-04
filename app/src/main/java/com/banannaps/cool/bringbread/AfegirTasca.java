@@ -61,18 +61,20 @@ public class AfegirTasca extends AppCompatActivity implements View.OnClickListen
                 if (!etNom.getText().toString().equals("")) { // Si no esta en blanc
 
                     String nom = etNom.getText().toString();
-                    String lloc= sPlaces.getSelectedItem().toString();
+                    String lloc = sPlaces.getSelectedItem().toString();
                     double lat = Llocs.get(lloc)[0];
                     double lon = Llocs.get(lloc)[1];
 
-                    Log.d("ACCEPTED", "Processant: "+nom+", a "+lloc+" | LAT = "+lat+"; LON = "+lon+"");
+                    Log.d("ACCEPTED", "Processant: " + nom + ", a " + lloc + " | LAT = " + lat + "; LON = " + lon + "");
 
                     //TODO: Fer el push de les dades aqui
-                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat="+Double.toString(lat)+"&lon="+Double.toString(lon)+"&nom="+nom);
+
+                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat=" + Double.toString(lat) + "&lon=" + Double.toString(lon) + "&nom=" + processaString(nom));
                     async.execute();
 
                     finish();
-                } else Toast.makeText(getBaseContext(), R.string.error_dialog_white, Toast.LENGTH_LONG).show();
+                } else
+                    Toast.makeText(getBaseContext(), R.string.error_dialog_white, Toast.LENGTH_LONG).show();
                 break;
 
             case R.id.btnCancelDialog:
@@ -80,4 +82,14 @@ public class AfegirTasca extends AppCompatActivity implements View.OnClickListen
                 break;
         }
     }
+
+        private String processaString(String nom){
+            String result ="";
+            String[] paraules = nom.split(" ");
+            for(int i=0; i<paraules.length-1;i++){
+                result+=paraules[i]+"%20";
+            }
+            result+=paraules[paraules.length-1];
+            return result;
+        }
 }
