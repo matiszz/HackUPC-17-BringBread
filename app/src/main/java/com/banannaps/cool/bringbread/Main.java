@@ -1,9 +1,17 @@
 package com.banannaps.cool.bringbread;
 
+import android.app.NotificationManager;
+import android.app.PendingIntent;
+import android.content.Context;
 import android.content.Intent;
+import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
+import android.support.v4.app.ActivityCompat;
+import android.support.v4.app.NotificationCompat;
+import android.support.v4.app.TaskStackBuilder;
+import android.support.v4.content.ContextCompat;
 import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.util.ArrayMap;
@@ -14,16 +22,19 @@ import android.view.MenuItem;
 import android.view.ViewGroup;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
+import android.widget.Button;
 import android.widget.ListAdapter;
 import android.widget.ListView;
 import android.widget.SimpleCursorAdapter;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import static android.app.Notification.PRIORITY_MAX;
+
 public class Main extends AppCompatActivity {
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
-
+    Button btnNotif;
     // El map Llocs com a clau el Nom del lloc, i un Vecotr de 2 doubles amb latitud i longitud.
     public static ArrayMap<String, double[]> Llocs = new ArrayMap<>();
 
@@ -35,7 +46,7 @@ public class Main extends AppCompatActivity {
         setBtnAfegir();
         setListView();
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
-            ActivityCompat.requestPermissions(this, new String[]{Manifest.permission.ACCESS_FINE_LOCATION}, 1);
+            ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
         btnNotif = (Button) findViewById(R.id.btnNotific);
         btnNotif.setOnClickListener(new View.OnClickListener() {
@@ -89,7 +100,6 @@ public class Main extends AppCompatActivity {
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
         // mId allows you to update the notification later on.
         mNotificationManager.notify(mId, mBuilder.build());
-    }
     }
 
     private void setBtnAfegir() {
@@ -154,6 +164,7 @@ public class Main extends AppCompatActivity {
 
         return super.onOptionsItemSelected(item);
     }
+
     @Override
     public void onRequestPermissionsResult(int requestCode,
                                            String permissions[], int[] grantResults) {
