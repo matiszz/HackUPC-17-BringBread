@@ -1,12 +1,10 @@
 package com.banannaps.cool.bringbread;
 
-import android.icu.util.Output;
 import android.os.AsyncTask;
 
 import org.json.JSONObject;
 
 import java.io.DataOutputStream;
-import java.io.OutputStream;
 import java.net.HttpURLConnection;
 import java.net.URL;
 
@@ -15,16 +13,16 @@ import java.net.URL;
  */
 
 public class AsyncT extends AsyncTask<Void, Void, Void> {
-    String token;
+    String urlS;
 
-    public AsyncT(String token){
+    public AsyncT(String url){
         super();
-        this.token = token;
+        this.urlS = url;
     }
     @Override
     protected Void doInBackground(Void... params){
         try {
-            URL url = new URL("http://hackupc2017.herokuapp.com/register?token="+token);
+            URL url = new URL(urlS);
             HttpURLConnection httpURLConnection = (HttpURLConnection) url.openConnection();
             httpURLConnection.setDoInput(true);
             httpURLConnection.setDoOutput(true);
@@ -35,7 +33,7 @@ public class AsyncT extends AsyncTask<Void, Void, Void> {
             httpURLConnection.connect();
             httpURLConnection.getInputStream();
             JSONObject jsonObject = new JSONObject();
-            jsonObject.put("token", token);
+            jsonObject.put("token", url);
             wait(10);
             DataOutputStream wr = new DataOutputStream(httpURLConnection.getOutputStream());
             wr.writeBytes(jsonObject.toString());

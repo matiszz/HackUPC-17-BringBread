@@ -39,6 +39,7 @@ public class BackgroundLocationService extends Service implements
     private LocationRequest mLocationRequest;
     private boolean mInProgress;
     private Boolean servicesAvailable = false;
+    private DistanceCalculator calc = new DistanceCalculator();
 
     @Override
     public void onCreate() {
@@ -126,6 +127,7 @@ public class BackgroundLocationService extends Service implements
 
     @Override
     public void onLocationChanged(Location location) {
+        double distance = calc.distance(location.getLatitude(), location.getAltitude(), 41, 2, "K");
         // Report to the UI that the location was updated
         String msg = Double.toString(location.getLatitude()) + "," +
                 Double.toString(location.getLongitude());
