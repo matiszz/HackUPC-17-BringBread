@@ -213,8 +213,14 @@ public class Main extends AppCompatActivity {
                 Llocs.put(nomLloc, new double[]{lat, lon});
                 llocsPredefs = new ArrayList();
                 if (llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
+
             } else if (intent.getAction().equals("Notificacio")) {
 
+                String nomLloc = extras.getString("loc");
+                int i = locTasques.indexOf(nomLloc);
+                String tasca = nomTasques.get(i);
+
+                rebreMissatge(tasca, nomLloc);
             }
         }
     }

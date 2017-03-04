@@ -42,10 +42,12 @@ public class AfegirTasca extends AppCompatActivity implements View.OnClickListen
         llocsPredefs.add("Panaderia");
         llocsPredefs.add("Supermercat");
         llocsPredefs.add("Farmacia");
+        llocsPredefs.add("FIB");
 
         Llocs.put("Supermercat", new double[] {41.387657, 2.114799});
         Llocs.put("Panaderia", new double[] {41.393678, 2.112148});
         Llocs.put("Farmacia", new double[] {41.383895, 2.129782});
+        Llocs.put("FIB", new double[] {41.389323, 2.113387});
 
         // Adapter i tot lo del Spinner amb els llocs predefinits
         ArrayAdapter<CharSequence> adapter = new ArrayAdapter(this, android.R.layout.simple_spinner_item, llocsPredefs);
