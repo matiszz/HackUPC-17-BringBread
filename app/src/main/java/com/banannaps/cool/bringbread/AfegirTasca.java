@@ -58,6 +58,8 @@ public class AfegirTasca extends AppCompatActivity implements View.OnClickListen
                     Toast.makeText(this, ""+nom+", a "+lloc+" | LAT = "+lat+"; LON = "+lon+"", Toast.LENGTH_LONG).show();
 
                     //TODO: Fer el push de les dades aqui
+                    AsyncT async = new AsyncT("http://hackupc2017.herokuapp.com/afegir?lat="+Double.toString(lat)+"&lon="+Double.toString(lon)+"&nom="+nom);
+                    async.execute();
 
                     finish();
                 } else {
