@@ -2,8 +2,10 @@ package com.banannaps.cool.bringbread;
 
 import android.app.NotificationManager;
 import android.app.PendingIntent;
+import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
+import android.content.IntentFilter;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
@@ -35,6 +37,8 @@ public class Main extends AppCompatActivity {
     ListView lv_tasques;
     FloatingActionButton btn_afegir;
     Button btnNotif;
+    public static String ACTION_FET = "Main.this";
+
     // El map Llocs com a clau el Nom del lloc, i un Vecotr de 2 doubles amb latitud i longitud.
     public static ArrayMap<String, double[]> Llocs = new ArrayMap<>();
 
@@ -45,10 +49,10 @@ public class Main extends AppCompatActivity {
 
         setBtnAfegir();
         setListView();
+        startService(new Intent(this, BackgroundLocationService.class));
         if(ContextCompat.checkSelfPermission(this, android.Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED){
             ActivityCompat.requestPermissions(this, new String[]{android.Manifest.permission.ACCESS_FINE_LOCATION}, 1);
         }
-        startService(new Intent(this, BackgroundLocationService.class));
 
         btnNotif = (Button) findViewById(R.id.btnNotific);
         btnNotif.setOnClickListener(new View.OnClickListener() {
@@ -58,50 +62,34 @@ public class Main extends AppCompatActivity {
             }
         });
 
-        /////////////////////
     }
 
     private void rebreMissatge() {
 
-        int mId = 0;
+        // Set up notification
+        NotificationCompat.Builder notifAprop = new NotificationCompat.Builder(this)
+                .setSmallIcon(R.drawable.bread)
+                .setContentTitle("Comprar pa")
+                .setContentText(""+R.string.notif_text2+"")
+                .setAutoCancel(true)
+                .setPriority(PRIORITY_MAX);
 
-        NotificationCompat.Builder mBuilder =
-                (NotificationCompat.Builder) new NotificationCompat.Builder(this)
-                        .setSmallIcon(R.mipmap.ic_launcher_round)
-                        .setContentTitle("My notification")
-                        .setContentText("Hello World!")
-                        .setPriority(PRIORITY_MAX);
-
-        NotificationCompat.InboxStyle inboxStyle = new NotificationCompat.InboxStyle();
-        String[] events = new String[6];
-        // Sets a title for the Inbox in expanded layout
-        inboxStyle.setBigContentTitle("Event tracker details:");
-        // Moves events into the expanded layout
-        for (int i=0; i < events.length; i++) {
-
-            inboxStyle.addLine(events[i]);
-        }
-        // Moves the expanded layout object into the notification object.
-        mBuilder.setStyle(inboxStyle);
-
-
-        // Creates an explicit intent for an Activity in your app
-        Intent resultIntent = new Intent(this, Main.class);
-
-        // The stack builder object will contain an artificial back stack for the
-        // started Activity.
-        // This ensures that navigating backward from the Activity leads out of
-        // your application to the Home screen.
-        TaskStackBuilder stackBuilder = TaskStackBuilder.create(this);
-        // Adds the back stack for the Intent (but not the Intent itself)
-        stackBuilder.addParentStack(Main.class);
-        // Adds the Intent that starts the Activity to the top of the stack
-        stackBuilder.addNextIntent(resultIntent);
-        PendingIntent resultPendingIntent = stackBuilder.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT );
-        mBuilder.setContentIntent(resultPendingIntent);
+        // intentClicat = Quan es clica. constPila = Acció quan torna.
+        Intent intentClicat = new Intent(this, DialegNotificacio.class);
+        TaskStackBuilder constPila = TaskStackBuilder.create(this);
+        constPila.addParentStack(Main.class);
+        constPila.addNextIntent(intentClicat);
+        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.setContentIntent(resultPendingIntent);
         NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
-        // mId allows you to update the notification later on.
-        mNotificationManager.notify(mId, mBuilder.build());
+
+        //Intent per "Fet"
+        Intent fetIntent = new Intent();
+        fetIntent.setAction(ACTION_FET);
+        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, fetIntent, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
+
+        mNotificationManager.notify((int) System.currentTimeMillis(), notifAprop.build());
     }
 
     private void setBtnAfegir() {
@@ -168,8 +156,7 @@ public class Main extends AppCompatActivity {
     }
 
     @Override
-    public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+    public void onRequestPermissionsResult(int requestCode, String permissions[], int[] grantResults) {
         switch (requestCode) {
             case 1: {
                 // If request is cancelled, the result arrays are empty.

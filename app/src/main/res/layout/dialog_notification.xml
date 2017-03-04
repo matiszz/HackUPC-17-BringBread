@@ -25,14 +25,14 @@
         android:layout_marginTop="16dp">
 
         <Button
-            android:id="@+id/btnCancelDialog"
+            android:id="@+id/btnSnoozeDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dialog_snooze"
             android:layout_weight="1"/>
 
         <Button
-            android:id="@+id/btnOkDialog"
+            android:id="@+id/btnFetDialog"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/dialog_done"
