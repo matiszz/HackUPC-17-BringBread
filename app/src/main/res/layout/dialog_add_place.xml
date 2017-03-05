@@ -8,26 +8,37 @@
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_name"
+        android:text="Localització"
         android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"/>
 
     <EditText
-        android:id="@+id/et_nomTasca"
+        android:id="@+id/et_locName"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:hint="@string/hint_name"/>
+        android:layout_height="wrap_content"/>
 
     <TextView
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/dialog_loc"
+        android:text="Coordenades"
         android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"/>
 
-    <Spinner
-        android:id="@+id/sp_Places"
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
-    </Spinner>
+        android:layout_height="wrap_content"
+        android:orientation="horizontal">
+        <EditText
+            android:id="@+id/et_latitud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Latitud"/>
+        <EditText
+            android:id="@+id/et_longitud"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:hint="Longitud"/>
+    </LinearLayout>
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -36,7 +47,7 @@
         android:gravity="right">
 
         <Button
-            android:id="@+id/btnCancelDialog"
+            android:id="@+id/btnCancelPlace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dialog_cancel"
@@ -44,7 +55,7 @@
             android:textColor="@color/colorAccent"/>
 
         <Button
-            android:id="@+id/btnOkDialog"
+            android:id="@+id/btnOkPlace"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dialog_ok"

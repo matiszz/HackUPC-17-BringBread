@@ -118,7 +118,9 @@ public class Main extends AppCompatActivity {
             return true;
         }
         if (id == R.id.btnDoSomething) {
-            rebreMissatge("Comprar pa", "Cafeteria");
+            //rebreMissatge("Comprar pa", "Cafeteria");
+            Intent intent = new Intent(this, AddPlace.class);
+            startActivity(intent);
             return true;
         }
 
@@ -142,15 +144,13 @@ public class Main extends AppCompatActivity {
         intentClicat.putExtra("msg", missatge);
         intentClicat.putExtra("loc", localitzacio);
 
-
 //        Intent per "Fet"
 //        Intent fetIntent = new Intent(this, Main.class);
 //        intentClicat.putExtra("msg", missatge);
-//        intentClicat.putExtra("loc", localitzacio);
-
-        //intentClicat.setAction(ACTION_FET);
-        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, intentClicat, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
+//        intentClicat.putExtra("loc", localitzacio)
+//        intentClicat.setAction(ACTION_FET);
+//        PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, intentClicat, PendingIntent.FLAG_UPDATE_CURRENT);
+//        notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
 
         android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
         constPila.addParentStack(Main.class);
