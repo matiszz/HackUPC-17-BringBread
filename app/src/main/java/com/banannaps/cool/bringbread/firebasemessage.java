@@ -12,8 +12,6 @@ import java.util.ArrayList;
 import static com.banannaps.cool.bringbread.AfegirTasca.llocsPredefs;
 import static com.banannaps.cool.bringbread.Main.Llocs;
 import static com.banannaps.cool.bringbread.Main.adaptador;
-import static com.banannaps.cool.bringbread.Main.locTasques;
-import static com.banannaps.cool.bringbread.Main.nomTasques;
 
 public class firebasemessage extends FirebaseMessagingService {
 
@@ -32,7 +30,7 @@ public class firebasemessage extends FirebaseMessagingService {
         intent.putExtra("lat", sLat);
         intent.putExtra("lon", sLon);
         intent.putExtra("loc", nomLloc);
-        intent.setAction("com.banannaps.cool.bringbread.onMessageRecieved");
+        intent.setAction("com.banannaps.cool.bringbread.Afegir");
         sendBroadcast(intent);
 
         double[] loc = {Double.parseDouble(sLat), Double.parseDouble(sLon)};
