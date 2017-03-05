@@ -6,6 +6,13 @@ package com.banannaps.cool.bringbread;
 
 public class Tasca {
 
+    public Tasca(double latitude, double longitude, String message, String location){
+        this.latitude = latitude;
+        this.longitude = longitude;
+        this.message = message;
+        this.location = location;
+    }
+
     public double getLatitude() {
         return latitude;
     }
