@@ -49,7 +49,7 @@ public class firebasemessage extends FirebaseMessagingService {
             Intent intent = new Intent();
             intent.putExtra("loc", loc);
             intent.putExtra("msg", msg);
-
+            intent.setAction("com.banannaps.cool.bringbread.Esborra");
         }
     }
 }
