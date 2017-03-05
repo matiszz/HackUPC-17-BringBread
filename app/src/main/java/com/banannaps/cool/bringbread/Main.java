@@ -44,13 +44,11 @@ public class Main extends AppCompatActivity {
     FloatingActionButton btn_afegir;
     static ArrayAdapter adaptador;
 
-    public static ArrayList<String> nomTasques = new ArrayList<>();
-    public static ArrayList<String> locTasques = new ArrayList<>();
-
     // El map Llocs com a clau el Nom del lloc, i un Vector de 2 doubles amb latitud i longitud.
     public static ArrayMap<String, double[]> Llocs = new ArrayMap<>();
-    public static ArrayMap<String, double[]> pendents = new ArrayMap<>();
-    //public static List<Tasca> pendents = new ArrayList<>();
+//    public static ArrayMap<String, double[]> pendents = new ArrayMap<>();
+    public static List<Tasca> pendents = new ArrayList<>();
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -85,15 +83,15 @@ public class Main extends AppCompatActivity {
     public void setListView() {
         lv_tasques = (ListView) findViewById(R.id.lv_tasques);
 
-        adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, nomTasques) {
+        adaptador = new ArrayAdapter(this, android.R.layout.simple_list_item_2, android.R.id.text1, pendents) {
             @Override
             public View getView(int position, View convertView, ViewGroup parent) {
                 View view = super.getView(position, convertView, parent);
                 TextView nomTasca = (TextView) view.findViewById(android.R.id.text1);
                 TextView locTasca = (TextView) view.findViewById(android.R.id.text2);
 
-                nomTasca.setText(nomTasques.get(position));
-                locTasca.setText(locTasques.get(position));
+                nomTasca.setText(pendents.get(position).getMessage());
+                locTasca.setText(pendents.get(position).getLocation());
                 return view;
             }
         };
@@ -199,34 +197,28 @@ public class Main extends AppCompatActivity {
         public void onReceive(Context context, Intent intent) {
             Log.d("ARRIBAT:", "Arriba al mybroadcast...");
             Bundle extras = intent.getExtras();
-            if (intent.getAction().equals("com.banannaps.cool.bringbread.onMessageRecieved")) {
-                String nomMissatge = extras.getString("nom");
-                String sLat = extras.getString("lat");
-                String sLon = extras.getString("lon");
-                String nomLloc = extras.getString("loc");
 
-                double lat = Double.parseDouble(sLat);
-                double lon = Double.parseDouble(sLon);
+            if (intent.getAction().equals("com.banannaps.cool.bringbread.onMessageRecieved")) { //Afegir al listview
+                //Quan be del servidor
+                Log.d("ARRIBAT:", "Era un missatge");
 
-                nomTasques.add(nomMissatge);
+                String localitzacio = extras.getString("loc");
+                double latitud = Double.parseDouble(extras.getString("lat"));
+                double longitud = Double.parseDouble(extras.getString("lon"));
+
                 setListView();
 
-                locTasques.add(nomLloc);
-                Llocs.put(nomLloc, new double[]{lat, lon});
+                Llocs.put(localitzacio, new double[] {latitud, longitud});
                 llocsPredefs = new ArrayList();
-                if (llocsPredefs.contains(nomLloc)) llocsPredefs.add(nomLloc);
-
-                Log.d("ARRIBAT:", "Era un missatge...");
+                if (llocsPredefs.contains(localitzacio)) llocsPredefs.add(localitzacio);
 
             } else if (intent.getAction().equals("com.banannaps.cool.bringbread.Notificacio")) {
-
-                String nomLloc = extras.getString("loc");
-                int i = locTasques.indexOf(nomLloc);
-                String tasca = nomTasques.get(i);
-
-                rebreMissatge(tasca, nomLloc);
-
+                // Quan estàs a la location
                 Log.d("ARRIBAT:", "Era una notificacio");
+
+                String localitzacio = extras.getString("loc");
+                String missatge = extras.getString("msg");
+                rebreMissatge(missatge, localitzacio);
             }
         }
     }
