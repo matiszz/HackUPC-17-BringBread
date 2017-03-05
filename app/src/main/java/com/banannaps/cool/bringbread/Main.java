@@ -56,6 +56,7 @@ public class Main extends AppCompatActivity {
         intentFilter.addAction("com.banannaps.cool.bringbread.Afegir");
         intentFilter.addAction("com.banannaps.cool.bringbread.Notificacio");
         intentFilter.addAction("com.banannaps.cool.bringbread.Update");
+        intentFilter.addAction("com.banannaps.cool.bringbread.Esborra");
         MyBroadcastReceiver receiver = new MyBroadcastReceiver();
         registerReceiver(receiver, intentFilter);
     }
@@ -131,9 +132,8 @@ public class Main extends AppCompatActivity {
         android.support.v4.app.NotificationCompat.Builder notifAprop = new android.support.v4.app.NotificationCompat.Builder(this)
                 .setSmallIcon(R.drawable.check)
                 .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),R.drawable.bread))
-                .setContentTitle(missatge)
-                .setContentText("A prop de "+localitzacio+"")
-                .setContentText("Fes swipe per descartar la tasca")
+                .setContentTitle(missatge + " - " + localitzacio)
+                .setContentText(getString(R.string.notif_text2))
                 .setAutoCancel(true)
                 .setPriority(PRIORITY_MAX);
 
@@ -142,14 +142,8 @@ public class Main extends AppCompatActivity {
         intentClicat.putExtra("msg", missatge);
         intentClicat.putExtra("loc", localitzacio);
 
-        android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
-        constPila.addParentStack(Main.class);
-        constPila.addNextIntent(intentClicat);
-        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
-        notifAprop.setContentIntent(resultPendingIntent);
-        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
-        //Intent per "Fet"
+//        Intent per "Fet"
 //        Intent fetIntent = new Intent(this, Main.class);
 //        intentClicat.putExtra("msg", missatge);
 //        intentClicat.putExtra("loc", localitzacio);
@@ -157,6 +151,13 @@ public class Main extends AppCompatActivity {
         intentClicat.setAction(ACTION_FET);
         PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, intentClicat, PendingIntent.FLAG_UPDATE_CURRENT);
         notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
+
+        android.support.v4.app.TaskStackBuilder constPila = android.support.v4.app.TaskStackBuilder.create(this);
+        constPila.addParentStack(Main.class);
+        constPila.addNextIntent(intentClicat);
+        PendingIntent resultPendingIntent = constPila.getPendingIntent(0, PendingIntent.FLAG_UPDATE_CURRENT);
+        notifAprop.setContentIntent(resultPendingIntent);
+        NotificationManager mNotificationManager = (NotificationManager) getSystemService(Context.NOTIFICATION_SERVICE);
 
         mNotificationManager.notify((int) System.currentTimeMillis(), notifAprop.build());
     }
@@ -203,6 +204,19 @@ public class Main extends AppCompatActivity {
 
             } else if (intent.getAction().equals("com.banannaps.cool.bringbread.Update")) {
                 // Actualitzar
+                setListView();
+
+            } else if (intent.getAction().equals("com.banannaps.cool.bringbread.Esborra")) {
+                // Esborrar
+                String localitzacio = extras.getString("loc");
+                String missatge = extras.getString("msg");
+                List<Tasca> aBorrar = new ArrayList<>();
+
+                for(Tasca tasca : Main.pendents){
+                    if(tasca.getMessage().equals(missatge) && tasca.getLocation().equals(localitzacio))
+                        aBorrar.add(tasca);
+                }
+                for(Tasca tasca : aBorrar) Main.pendents.remove(tasca);
                 setListView();
             }
         }

@@ -9,34 +9,37 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="Exemple de titol"
-        android:textAppearance="@style/TextAppearance.AppCompat.Title"/>
+        android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Title"/>
 
     <TextView
         android:id="@+id/tv_Dialog_Loc"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:text="Aiò és un exemple de localització."
-        android:textAppearance="@style/TextAppearance.AppCompat.Body1"/>
+        android:text="@string/dialog_text2"
+        android:layout_marginTop="16dp"
+        android:textAppearance="@style/Base.TextAppearance.Widget.AppCompat.Toolbar.Subtitle"/>
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="horizontal"
-        android:layout_marginTop="16dp">
+        android:gravity="right">
 
         <Button
             android:id="@+id/btnSnoozeDialog"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dialog_snooze"
-            android:layout_weight="1"/>
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorAccent"/>
 
         <Button
             android:id="@+id/btnFetDialog"
-            android:layout_width="match_parent"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="@string/dialog_done"
             android:layout_gravity="right"
-            android:layout_weight="1"/>
+            android:background="@android:color/transparent"
+            android:textColor="@color/colorAccent"/>
     </LinearLayout>
 </LinearLayout>
