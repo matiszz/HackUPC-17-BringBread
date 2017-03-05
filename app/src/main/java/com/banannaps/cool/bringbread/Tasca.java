@@ -13,6 +13,7 @@ public class Tasca {
         this.location = location;
     }
 
+
     public double getLatitude() {
         return latitude;
     }
@@ -45,8 +46,17 @@ public class Tasca {
         this.location = location;
     }
 
+    public void marcarEnsenyada(){
+        jaEnsenyada = true;
+    }
+
+    public boolean isEnsenyada(){
+        return jaEnsenyada;
+    }
+
     private double latitude;
     private double longitude;
     private String message;
     private String location;
+    private boolean jaEnsenyada = false;
 }
