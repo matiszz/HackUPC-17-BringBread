@@ -7,12 +7,6 @@ import android.util.Log;
 import com.google.firebase.messaging.FirebaseMessagingService;
 import com.google.firebase.messaging.RemoteMessage;
 
-import java.util.ArrayList;
-
-import static android.content.ContentValues.TAG;
-import static com.banannaps.cool.bringbread.AfegirTasca.llocsPredefs;
-import static com.banannaps.cool.bringbread.Main.Llocs;
-import static com.banannaps.cool.bringbread.Main.adaptador;
 
 public class firebasemessage extends FirebaseMessagingService {
 

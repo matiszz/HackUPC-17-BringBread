@@ -148,7 +148,7 @@ public class Main extends AppCompatActivity {
 //        intentClicat.putExtra("msg", missatge);
 //        intentClicat.putExtra("loc", localitzacio);
 
-        intentClicat.setAction(ACTION_FET);
+        //intentClicat.setAction(ACTION_FET);
         PendingIntent pendingIntentFet = PendingIntent.getBroadcast(this, 12345, intentClicat, PendingIntent.FLAG_UPDATE_CURRENT);
         notifAprop.addAction(R.drawable.check, "Fet", pendingIntentFet);
 
@@ -210,15 +210,19 @@ public class Main extends AppCompatActivity {
                 // Esborrar
                 String localitzacio = extras.getString("loc");
                 String missatge = extras.getString("msg");
-                List<Tasca> aBorrar = new ArrayList<>();
-
-                for(Tasca tasca : Main.pendents){
-                    if(tasca.getMessage().equals(missatge) && tasca.getLocation().equals(localitzacio))
-                        aBorrar.add(tasca);
-                }
-                for(Tasca tasca : aBorrar) Main.pendents.remove(tasca);
-                setListView();
+                esborraAndRefresh(localitzacio,missatge);
             }
         }
+    }
+
+    public void esborraAndRefresh (String localitzacio, String missatge) {
+        List<Tasca> aBorrar = new ArrayList<>();
+
+        for(Tasca tasca : Main.pendents){
+            if(tasca.getMessage().equals(missatge) && tasca.getLocation().equals(localitzacio))
+                aBorrar.add(tasca);
+        }
+        for(Tasca tasca : aBorrar) Main.pendents.remove(tasca);
+        setListView();
     }
 }

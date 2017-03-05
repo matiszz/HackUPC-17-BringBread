@@ -2,7 +2,7 @@
     <string name="app_name">Bring Bread</string>
     <string name="action_settings">Settings</string>
 
-    <string name="T_main">Els vostres enàarrecs</string>
+    <string name="T_main">Els vostres enàrrecs</string>
     <string name="T_dialog_add">Afegir encàrrec</string>
 
     <string name="dialog_name">Descripció</string>
