@@ -68,5 +68,7 @@ public class DialegNotificacio extends AppCompatActivity implements View.OnClick
         Intent intent = new Intent();
         intent.setAction("com.banannaps.cool.bringbreag.Update");
         sendBroadcast(intent);
+        AsyncT asyncT = new AsyncT("http://hackupc2017.herokuapp.com/delete?loc="+loc.replace(" ", "%20")+"&msg="+msg.replace(" ", "%20"));
+        asyncT.execute();
     }
 }
