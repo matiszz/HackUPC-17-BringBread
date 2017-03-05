@@ -138,7 +138,7 @@ public class BackgroundLocationService extends Service implements
         for(Tasca tasca : Main.pendents){
             double distance = calc.distance(location.getLatitude(), location.getLongitude(), tasca.getLatitude(), tasca.getLongitude(), "K");
             Log.d("onLocationChanged: ", Double.toString(distance));
-            if (distance < 0.1) {
+            if (distance < 0.1 && !tasca.isEnsenyada()) {
 
                 Intent intent = new Intent();
                 intent.putExtra("loc", tasca.getLocation());
@@ -147,12 +147,8 @@ public class BackgroundLocationService extends Service implements
                 sendBroadcast(intent);
                 //
                 //Main.pendents.remove(entry.getKey());
-                aborrar.add(tasca);
+                tasca.marcarEnsenyada();
             }
-        }
-
-        for(Tasca key : aborrar){
-            Main.pendents.remove(key);
         }
 
         if(Main.pendents.isEmpty()){

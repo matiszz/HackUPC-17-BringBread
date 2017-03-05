@@ -1,10 +1,14 @@
 package com.banannaps.cool.bringbread;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * Created by matias on 04/03/2017.
@@ -14,6 +18,8 @@ public class DialegNotificacio extends AppCompatActivity implements View.OnClick
 
     Button btnFet, btnSnooze;
     TextView tvNom, tvLoc;
+    String loc, msg;
+    boolean esborraDirecte = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -27,17 +33,40 @@ public class DialegNotificacio extends AppCompatActivity implements View.OnClick
 
         btnFet.setOnClickListener(this);
         btnSnooze.setOnClickListener(this);
+
+        Bundle extras = getIntent().getExtras();
+        loc = extras.getString("loc");
+        msg = extras.getString("msg");
+        esborraDirecte = extras.getBoolean("esb");
+        if (esborraDirecte) esborra();
+
     }
 
     @Override
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btnFetDialog:
+                esborra();
                 finish();
                 break;
             case R.id.btnSnoozeDialog:
                 finish();
                 break;
         }
+    }
+    private void esborra(){
+        List<Tasca> aBorrar = new ArrayList<>();
+
+        for(Tasca tasca : Main.pendents){
+            if(tasca.getMessage().equals(msg) && tasca.getLocation().equals(loc)){
+                aBorrar.add(tasca);
+            }
+        }
+        for(Tasca tasca : aBorrar){
+            Main.pendents.remove(tasca);
+        }
+        Intent intent = new Intent();
+        intent.setAction("com.banannaps.cool.bringbreag.Update");
+        sendBroadcast(intent);
     }
 }
