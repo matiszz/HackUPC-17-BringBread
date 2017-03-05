@@ -36,10 +36,10 @@ public class firebasemessage extends FirebaseMessagingService {
         sendBroadcast(intent);
 
         double[] loc = {Double.parseDouble(sLat), Double.parseDouble(sLon)};
-//        if(Main.pendents.isEmpty()){
-
-            Main.pendents.put(nomLloc, loc);
+        Tasca tasca = new Tasca(Double.parseDouble(sLat), Double.parseDouble(sLon), nomMissatge, nomLloc);
+        Main.pendents.add(tasca);
+        if(Main.pendents.size() == 1){
             startService(new Intent(this, BackgroundLocationService.class));
-//        }
+        }
     }
 }

@@ -134,23 +134,24 @@ public class BackgroundLocationService extends Service implements
 
     @Override
     public void onLocationChanged(Location location) {
-        List<String> keys = new ArrayList<>();
-        for(Map.Entry<String, double[]> entry : Main.pendents.entrySet()) {
-            double distance = calc.distance(location.getLatitude(), location.getLongitude(), entry.getValue()[0], entry.getValue()[1], "K");
+        List<Tasca> aborrar = new ArrayList<>();
+        for(Tasca tasca : Main.pendents){
+            double distance = calc.distance(location.getLatitude(), location.getLongitude(), tasca.getLatitude(), tasca.getLongitude(), "K");
             Log.d("onLocationChanged: ", Double.toString(distance));
             if (distance < 0.1) {
 
                 Intent intent = new Intent();
-                intent.putExtra("loc", entry.getKey());
+                intent.putExtra("loc", tasca.getLocation());
+                intent.putExtra("msg", tasca.getMessage());
                 intent.setAction("com.banannaps.cool.bringbread.Notificacio");
                 sendBroadcast(intent);
                 //
                 //Main.pendents.remove(entry.getKey());
-                keys.add(entry.getKey());
+                aborrar.add(tasca);
             }
         }
 
-        for(String key : keys){
+        for(Tasca key : aborrar){
             Main.pendents.remove(key);
         }
 
