@@ -132,7 +132,7 @@ public class Main extends AppCompatActivity {
     public void rebreMissatge(String missatge, String localitzacio) {
         // Set up notification
         android.support.v4.app.NotificationCompat.Builder notifAprop = new android.support.v4.app.NotificationCompat.Builder(this)
-                .setSmallIcon(R.drawable.check)
+                .setSmallIcon(R.drawable.ic_add)
                 .setLargeIcon(BitmapFactory.decodeResource(this.getResources(),R.drawable.bread))
                 .setContentTitle(missatge + " - " + localitzacio)
                 .setContentText(getString(R.string.notif_text2))
